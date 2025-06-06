@@ -1,0 +1,51 @@
+{
+  "name": "Weekend Mountain Retreat",
+  "cover_image_media": null,
+  "nights": 3,
+  "start_datetime": "2025-09-15T16:00:00Z",
+  "location_name": "Big Bear Lake",
+  "location_lat": "34.2439",
+  "location_lng": "-116.9114",
+  "place_id": "ChIJK-3PGidLx4ARh3QjD1zV8Wk",
+  "category_id": "1a80a229-1ad6-405c-accc-28e38e1f2ecc",
+  "description": "Join us for a relaxing weekend in the mountains with hiking and stargazing!",
+  "soft_delete": false,
+  "countries": {
+    "start": "US",
+    "end": "US"
+  },
+  "tags": ["mountain", "hiking", "weekend", "retreat", "nature"],
+  "config": {
+    "capacity": 12,
+    "enable_waitlist": true,
+    "guest_approval": true,
+    "is_public": false,
+    "password_key": "mountain2025",
+    "status": "DRAFT",
+    "is_ticker": true,
+    "ticker_text": "🏔 Mountain Retreat • Sep 15-18, 2025",
+    "place_name": "Bear Mountain Resort",
+    "rules": [
+      "No pets allowed",
+      "Bring your own hiking gear",
+      "Quiet hours after 11pm"
+    ]
+  },
+  "custom_links": [
+    {
+      "emoji": "🏡",
+      "label": "Cabin Details",
+      "url": "https://cabins.example.com/details"
+    },
+    {
+      "emoji": "🥾",
+      "label": "Hiking Trails",
+      "url": "https://trails.example.com/bigbear"
+    },
+    {
+      "emoji": "🧳",
+      "label": "Packing List",
+      "url": "https://docs.example.com/packing"
+    }
+  ]
+}
