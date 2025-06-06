@@ -1,6 +1,9 @@
 import { create } from 'zustand';
 
 interface InviteFormData {
+  category_id: string;
+  calendartype: string;
+  visibility: string;
   cover_image_media: null | string;
   themeVideoType: string | null;
   themeVideo: null | string;
@@ -40,7 +43,10 @@ export const useInviteStore = create<InviteStore>((set) => ({
     cover_image_media: null,
     themeVideoType: null,
     themeVideo: null,
-    coverImage: null
+    coverImage: null,
+    category_id: '',
+    calendartype: '',
+    visibility: ''
   },
   setFormData: (data) =>
     set((state) => ({
@@ -63,7 +69,10 @@ export const useInviteStore = create<InviteStore>((set) => ({
         cover_image_media: null,
         themeVideoType: null,
         themeVideo: null,
-        coverImage: null
+        coverImage: null,
+        category_id: '',
+        calendartype: '',
+        visibility: ''
       },
     }),
 }));

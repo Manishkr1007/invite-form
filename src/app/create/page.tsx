@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import { useInviteStore } from '@/store/useInviteStore';
 import { useEffect, useRef, useState } from 'react';
 import creatingDummy from '@/data/creating.json';
-import { FiEdit2, FiChevronDown, FiShuffle, FiBookOpen, FiCamera, FiFilm } from "react-icons/fi";
+import { FiEdit2, FiChevronDown, FiShuffle, FiBookOpen, FiCamera, FiFilm, FiGlobe } from "react-icons/fi";
 
 
 
@@ -21,14 +21,14 @@ export default function CreatePage() {
     const [theme, setTheme] = useState('image');
     const themeDropdownRef = useRef<HTMLDivElement>(null);
     const [coverImage, setCoverImage] = useState<any>(formData.cover_image_media || null);
-    const [themeMedia, setThemeMedia] = useState<any >(formData.themeMedia || null); 
+    const [themeMedia, setThemeMedia] = useState<any>(formData.themeMedia || null);
     const coverInputRef = useRef<HTMLInputElement>(null);
     const themeInputRef = useRef<HTMLInputElement>(null);
-    const [themeMediaType, setThemeMediaType] = useState< string | null >(formData.themeMediaType || null);
+    const [themeMediaType, setThemeMediaType] = useState<string | null>(formData.themeMediaType || null);
     const [themeVideo, setThemeVideo] = useState<any>(formData.themeVideo || null);
     const [themeVideoType, setThemeVideoType] = useState<string | null>(formData.themeVideoType || null);
     const themeVideoInputRef = useRef<HTMLInputElement>(null);
-    const [themeType, setThemeType] = useState<'image' | 'mp4' >('image');
+    const [themeType, setThemeType] = useState<'image' | 'mp4'>('image');
 
     useEffect(() => {
         setFormData(creatingDummy);
@@ -124,7 +124,9 @@ export default function CreatePage() {
                         <div className="relative" ref={themeDropdownRef}>
                             <button
                                 type="button"
-                                className="bg-[#5A3B6B] text-white text-xs font-semibold rounded-md px-3 py-2 flex items-center gap-1"
+                                className="bg-[#5A3B6B] text-white text-xs font-semibold rounded-md px-3 py-2 flex items-center gap-1
+        hover:bg-pink-400 hover:text-white transition-colors duration-200 cursor-pointer
+        active:scale-95 active:bg-pink-600"
                                 onClick={() => setThemeDropdownOpen(open => !open)}
                             >
                                 <FiBookOpen className="text-[14px]" />
@@ -132,6 +134,7 @@ export default function CreatePage() {
                                 {themeType === 'mp4' && 'MP4'}
                                 <FiChevronDown className="text-[10px]" />
                             </button>
+
                             {themeDropdownOpen && (
                                 <div className="absolute left-0 mt-1 bg-[#5A3B6B] rounded-md shadow-lg z-10 min-w-[120px]">
                                     <button
@@ -155,7 +158,9 @@ export default function CreatePage() {
                         {themeType === 'image' && (
                             <button
                                 type="button"
-                                className="bg-[#5A3B6B] p-2 rounded-md flex items-center justify-center"
+                                className="bg-[#5A3B6B] p-2 rounded-md flex items-center justify-center
+        hover:bg-pink-400 hover:text-white transition-colors duration-200 cursor-pointer
+        active:scale-95 active:bg-pink-600"
                                 onClick={() => themeInputRef.current?.click()}
                                 title="Upload Theme Image"
                             >
@@ -172,11 +177,13 @@ export default function CreatePage() {
                         {themeType === 'mp4' && (
                             <button
                                 type="button"
-                                className="bg-[#5A3B6B] p-2 rounded-md flex items-center justify-center"
+                                className="bg-[#5A3B6B] p-2 rounded-md flex items-center justify-center
+        hover:bg-pink-400 hover:text-white transition-colors duration-200 cursor-pointer
+        active:scale-95 active:bg-pink-600"
                                 onClick={() => themeInputRef.current?.click()}
-                                title="Upload Theme Video"
+                                title="Upload Theme Image"
                             >
-                                <FiFilm className="text-white text-xs" />
+                                             <FiFilm className="text-white text-xs" />
                                 <input
                                     ref={themeInputRef}
                                     type="file"
@@ -187,7 +194,12 @@ export default function CreatePage() {
                             </button>
                         )}
                         {/* Shuffle theme button */}
-                        <button className="bg-[#5A3B6B] p-2 rounded-md flex items-center justify-center" onClick={() => console.log('Shuffle theme')}>
+                        <button
+                            className="bg-[#5A3B6B] p-2 rounded-md flex items-center justify-center
+        hover:bg-pink-400 hover:text-white transition-colors duration-200 cursor-pointer
+        active:scale-95 active:bg-pink-600"
+                            onClick={() => console.log('Shuffle theme')}
+                        >
                             <FiShuffle className="text-white text-xs" />
                         </button>
                     </div>
@@ -203,13 +215,7 @@ export default function CreatePage() {
                         </div>
                     )}
                     {/* Preview Button */}
-                    <button
-                        type="button"
-                        className="bg-pink-500 text-white rounded-md py-2 px-4 mt-2 font-semibold text-sm"
-                        onClick={handlePreview}
-                    >
-                        Preview
-                    </button>
+                  
                 </section>
 
                 {/* Right side */}
@@ -219,11 +225,13 @@ export default function CreatePage() {
                         <div className="relative" ref={calendarDropdownRef}>
                             <button
                                 type="button"
-                                className="bg-[#5A3B6B] rounded-full px-3 py-1 text-xs flex items-center gap-2"
+                                className="bg-[#5A3B6B] rounded-full px-3 py-1 text-xs flex items-center gap-2
+               hover:bg-pink-400 hover:text-white transition-colors duration-200 cursor-pointer
+               active:scale-95 active:bg-pink-600"
                                 onClick={() => setCalendarDropdownOpen((open) => !open)}
                             >
                                 <span className="w-2 h-2 rounded-full bg-pink-400 inline-block" />
-                                {calendartype}<span className="text-[10px]">▼</span>
+                                {calendartype} <FiChevronDown className="text-[10px]" />
                             </button>
                             {calendarDropdownOpen && (
                                 <div className="absolute left-0 mt-1 bg-[#5A3B6B] rounded-md shadow-lg z-10 min-w-[140px]">
@@ -242,10 +250,12 @@ export default function CreatePage() {
                         <div className="relative" ref={dropdownRef}>
                             <button
                                 type="button"
-                                className="bg-[#5A3B6B] rounded-full px-3 py-1 text-xs flex items-center gap-2"
+                                className="bg-[#5A3B6B] rounded-full px-3 py-1 text-xs flex items-center gap-2
+               hover:bg-pink-400 hover:text-white transition-colors duration-200 cursor-pointer
+               active:scale-95 active:bg-pink-600"
                                 onClick={() => setDropdownOpen((open) => !open)}
                             >
-                                🌐 {visibility} <span className="text-[10px]">▼</span>
+                                <FiGlobe className="text-[12px]" /> {visibility}  <FiChevronDown className="text-[10px]" />
                             </button>
                             {dropdownOpen && (
                                 <div className="absolute right-0 mt-1 bg-[#5A3B6B] rounded-md shadow-lg z-10 min-w-[120px]">
@@ -254,7 +264,7 @@ export default function CreatePage() {
                                         className={`block w-full text-left px-4 py-2 text-xs text-[#9B8AA0] hover:bg-pink-400 hover:text-white rounded-t-md ${visibility === 'Public' ? 'font-bold' : ''}`}
                                         onClick={() => { setVisibility('Public'); setDropdownOpen(false); }}
                                     >
-                                        🌐 Public
+                                        <FiGlobe className="inline mr-2" /> Public
                                     </button>
 
                                 </div>
@@ -291,7 +301,7 @@ export default function CreatePage() {
                                 </fieldset>
                                 {/* End Field */}
                                 <fieldset className="flex items-center gap-3">
-                                    <label className="flex items-center gap-1 text-xs cursor-pointer">
+                                    <label className="flex items-center gap-2 text-xs cursor-pointer">
                                         <input type="radio" name="start-end" className="accent-pink-400" />
                                         <span>End</span>
                                     </label>
@@ -320,7 +330,7 @@ export default function CreatePage() {
                             value={formData.location_name || ''}
                             onChange={(e) => setFormData({ ...formData, location_name: e.target.value })}
                         />
-                        <p className="text-[9px] text-[#7E6D8A] mb-1 ml-1">
+                        <p className="text-[14px] text-[#7E6D8A] mb-1 ml-1 font-semibold">
                             Offline location or virtual link
                         </p>
 
@@ -377,7 +387,9 @@ export default function CreatePage() {
 
                         <button
                             type="submit"
-                            className="bg-white text-[#3B1F44] rounded-md py-2 mt-2 font-semibold text-sm"
+                            className="bg-white text-[#3B1F44] rounded-md py-2 mt-2 font-semibold text-sm
+               hover:bg-pink-400 hover:text-white transition-colors duration-200 cursor-pointer
+               active:scale-95 active:bg-pink-600 "
                         >
                             Create Event
                         </button>
